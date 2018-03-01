@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="FinalWebsite" default="createFinalWebsitePackage" basedir="." > 
+	<property name="app.classes.dir" value = "bin" />
+	<property name="app.jar.dir" value = "lib" /> 
+	<property name="app.web.xml" value = "web.xml" />
+	<property name="app.html.dir" value = "webpages" />
+	<property name="app.folder.name" value = "FinalWebsite.war" />
+	<property name="tomcat.webapps.dir" value = "D:\software\apache-tomcat-9.0.0.M17\webapps" />
+	
+	<target name="createFinalWebsitePackage">
+		<war destfile="${app.folder.name}" webxml="${app.web.xml}"> 
+			<fileset dir="${app.html.dir}"/>
+			<lib dir="${app.jar.dir}"> 
+			</lib>
+			<classes dir="${app.classes.dir}"/>
+			<webinf file ="sun-jaxws.xml"></webinf>
+			
+		</war>	
+		
+			<copy todir="${tomcat.webapps.dir}"
+			file="./FinalWebsite.war"/>
+	</target>
+	
+	
+	
+</project>
